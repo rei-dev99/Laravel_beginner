@@ -295,11 +295,11 @@ return [
             'route' => 'top.index',
             'icon'  => 'fas fa-fw fa-user',
         ],
-        // [
-        //     'text'       => 'ユーザー',
-        //     'url'        => 'users.index',
-        //     'icon'       => 'fas fa-fw fa-user',
-        // ],
+        [
+            'text'       => 'ユーザー',
+            'url'        => 'users.index',
+            'icon'       => 'fas fa-fw fa-user',
+        ],
     ],
 
     /*
