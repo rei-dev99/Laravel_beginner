@@ -297,7 +297,7 @@ return [
         ],
         [
             'text'       => 'ユーザー',
-            'url'        => 'users.index',
+            'route'        => 'users.index',
             'icon'       => 'fas fa-fw fa-user',
         ],
     ],
