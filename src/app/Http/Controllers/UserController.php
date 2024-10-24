@@ -43,6 +43,10 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'age' => 'required|integer',
+        ]);
         $user = new User();
         $user->name = $request->name;
         $user->age = $request->age;
@@ -88,6 +92,9 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
+        $validated = $request->validate([
+            'age' => 'required|integer',
+        ]);
         $data = $request->all();
         $user = User::find($id);
         $user->fill($data)->save();
