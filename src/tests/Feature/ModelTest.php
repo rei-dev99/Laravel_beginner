@@ -31,6 +31,8 @@ class ModelTest extends TestCase
         $attributes = [
             'name' => 'らんてくん',
             'age' => 20,
+            'tel' => '08000123456',
+            'address' => '東京都港区芝公園４−２−８',
         ];
         $response = $this->post("/users", $attributes);
         $user = \App\Models\User::select('*')->orderBy('id', 'desc')->first();
@@ -49,7 +51,9 @@ class ModelTest extends TestCase
         while($count < $num) {
             $user = new User();
             $user->name = "らんてくん{$num}";
-            $user->age = ($num + 1) * 10;
+            $user->age = $num;
+            $user->address = "東京都{$num}区{$num}丁目{$num}番{$num}号";
+            $user->tel = "090-1234-{$num}";
             $user->save();
 
             $count += 1;
