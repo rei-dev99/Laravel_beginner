@@ -14,8 +14,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $min_age = 20;
+        $max_age = 50;
+        $users = User::where('age', '>=', $min_age)->where('age', '<=', $max_age)->orderBy('age', 'desc')->get();
         $index_title = 'ユーザー一覧';
+
         return view(
             'users.index',
             compact('users', 'index_title')
@@ -40,9 +43,10 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $data = $request->all();
         $user = new User();
-        $user->fill($data)->save();
+        $user->name = $request->name;
+        $user->age = $request->age;
+        $user->save();
 
         return redirect(route('users.show', $user))->with('success', 'ユーザーを新規登録しました');
     }
