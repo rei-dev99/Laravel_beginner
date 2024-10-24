@@ -23,6 +23,12 @@
                             @if ($errors->has('age'))
                             <p>{{ $errors->first('age') }}</p>
                             @endif
+                            @if ($errors->has('tel'))
+                            <p>{{ $errors->first('tel') }}</p>
+                            @endif
+                            @if ($errors->has('address'))
+                            <p>{{ $errors->first('address') }}</p>
+                            @endif
                         </div>
                         @endif
 
@@ -35,6 +41,14 @@
                             <div class="form-group">
                                 <label for="body">年齢</label>
                                 <input type="number" name="age" class="form-control" value="{{old('age')}}" placeholder="25">
+                            </div>
+                            <div class="form-group">
+                                <label for="body">電話番号</label>
+                                <input type="number" name="tel" class="form-control" value="{{old('tel')}}" placeholder="09012345678">
+                            </div>
+                            <div class="form-group">
+                                <label for="body">住所</label>
+                                <input type="text" name="address" class="form-control" value="{{old('address')}}" placeholder="東京都渋谷区5-1-5">
                             </div>
                             <input type="submit" value="登録" class="btn btn-primary">
                         </form>
