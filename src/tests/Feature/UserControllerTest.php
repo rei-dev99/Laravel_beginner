@@ -20,7 +20,7 @@ class UserControllerTest extends TestCase
         $response = $this->get('/users');
 
         $this->checkCommonDisplay($response);
-        $response->assertSee($user->name, true, "一覧ページにユーザー名を表示してください");
+        $response->assertSee("らんてくん", false, "一覧ページにユーザー名を表示してください");
         $response->assertSee($user->age, true, "一覧ページに年齢を表示してください");
     }
 
@@ -64,8 +64,8 @@ class UserControllerTest extends TestCase
 
         while($count < $num) {
             $user = new User();
-            $user->name = "らんてくん{$num}";
-            $user->age = $num;
+            $user->name = "らんてくん";
+            $user->age = $num + 20;
             $user->save();
 
             $count += 1;
