@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -52,6 +53,8 @@ class UserController extends Controller
         $user->age = $request->age;
         $user->tel = $request->tel;
         $user->address = $request->address;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
         $user->save();
 
         return redirect(route('users.show', $user))->with('success', 'ユーザーを新規登録しました');
@@ -98,6 +101,10 @@ class UserController extends Controller
         $data = $request->all();
         $user = User::find($id);
         $user->fill($data)->save();
+        if(isset($data['password']) && !is_null($data['password'])) {
+            $user->password = Hash::make($data['password']);
+        }
+        $user->save();
 
         return redirect(route('users.show', $user))->with('success', 'ユーザー情報を更新しました');
     }
