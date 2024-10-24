@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 class TopController extends Controller
 {
     /**
@@ -11,6 +13,11 @@ class TopController extends Controller
      */
     public function index()
     {
-        return view('top.index');
+        $user = Auth::user();
+
+        return view(
+            'top.index',
+            compact('user')
+        );
     }
 }
