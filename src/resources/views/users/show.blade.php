@@ -43,6 +43,10 @@
                                     <th>住所</th>
                                     <td>{{$user->address}}</td>
                                 </tr>
+                                <tr>
+                                    <th>メールアドレス</th>
+                                    <td>{{$user->email}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
