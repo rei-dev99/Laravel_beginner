@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/', function () {
 
 Route::get('/top', [TopController::class, 'index'])->name('top.index');
 Route::resource('users', UserController::class);
+Route::resource('tasks', TaskController::class);
 Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'create')->name('login.create');
     Route::post('login', 'store')->name('login.store');
