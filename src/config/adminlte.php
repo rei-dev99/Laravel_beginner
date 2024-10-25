@@ -300,6 +300,11 @@ return [
             'route'        => 'users.index',
             'icon'       => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'タスク',
+            'route' => 'tasks.index',
+            'icon' => 'fas fa-fw fa-user',
+        ]
     ],
 
     /*
